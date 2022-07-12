@@ -1,0 +1,25 @@
+{
+  "title": "Template Demo Slides",
+  "favicon": "img/ninja_favicon.png",
+  "theme": "modular-2019",
+  "output": "out",
+  "extra": [
+    "img/"
+  ],
+  "configurations": [
+    {
+      "name": "demo",
+      "modules": ["00-corp-cover", "01-demo", "02-sections", "03-tables", "04-layouts", "05-media", "06-layouts-two-columns", "99-final"],
+      "flags": [
+        "slide numbers",
+        "show image borders"
+      ]
+    },
+    {
+      "name": "demo_noflags",
+      "modules": ["00-corp-cover", "01-demo", "02-sections", "03-tables", "04-layouts", "05-media", "06-layouts-two-columns", "99-final"],
+      "flags": [
+      ]
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Title of the slides</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css"  href="assets/css/style.css"/>
+    <link rel="shortcut icon" type="image/png" href="assets/img/ncc-logo.png" />
+  </head>
+  <body>
+    <!-- content will be filled in during build process -->
+    <textarea id="source">
+    </textarea>
+    <!-- Documentation: https://github.com/gnab/remark/wiki -->
+    <!-- Source: https://remarkjs.com/downloads/remark-latest.min.js -->
+    <!-- Real world examples: https://github.com/gnab/remark#real-world-remark-slideshows -->
+    <script src="assets/js/remark-latest.min.js" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+      // Remark.js Slideshow
+      // Custom Macros
+      // Image (img) Macro
+      // Usage: ![:img altText, style](url)
+      // Example: ![:img Layout Diagram, width:100%; border: none](images/diagram.png)
+      // Returns: <img alt="Layout Diagram" src="images/diagram.png" style="width: 100%; border: none" />
+      remark.macros.img = function (altText, style) {
+        var url = this;
+        return '<img alt="' + altText + '" src="' + url + '" style="' + style + '" />';
+      };
+      // Audio (audio) Macro
+      // Usage: ![:audio](url)
+      // Example: ![:audio](media/narration.mp3)
+      // Returns: <audio src="media/narration.mp3" />
+      remark.macros.audio = function () {
+        var url = this;
+        var tag = '<audio src="'+ url + '" />';
+        return tag;
+      }
+      // Create Slideshow
+      // https://github.com/gnab/remark/wiki/Configuration
+      var slideshow = remark.create({
+        // Set the slideshow display ratio
+        //ratio: '4:3',
+        ratio: '16:9',
+
+        // Navigation options
+        navigation: {
+          // Enable or disable navigating using scroll
+          scroll: true,
+
+          // Enable or disable navigation using touch
+          touch: true,
+
+          // Enable or disable navigation using click
+          click: false,
+        },
+
+        // Timer options
+        timer: {
+          // Start timer when first change occurs
+          startOnChange: true,
+
+          // Is it possible to reset the timer
+          resetable: false,
+
+          // Is the timer enabled
+          enabled: true,
+
+          // A formatter for the elapsed time in milliseconds, defaults to H:mm:ss
+          formatter: function (elapsedTime) {
+            var left = elapsedTime;
+            var millis = left % 1000; left = Math.floor(left / 1000);
+            var seconds = left % 60; left = Math.floor(left / 60);
+            var minutes = left % 60; left = Math.floor(left / 60);
+            var hours = left;
+
+            return '' + hours + ':' + ([minutes, seconds]
+              .map(function (d) { return '' + d; })
+              .map(function (s) { return s.length < 2 ? '0' + s : s; })
+              .join(':'));
+          }
+        },
+
+        // Disable counting of incremental slides in the slide counting
+        countIncrementalSlides: false,
+
+        // Value indicates if presenter notes should be visible or not
+        includePresenterNotes: true,
+
+        // Disable automatic syntax highlighting
+        highlightLanguage: 'no-highlight',
+
+        // Set highlight style for syntax highlighting
+        highlightStyle: 'default',
+
+        // Highlight background of code lines prefixed with *
+        highlightLines: true,
+
+        // Inside code blocks, highlight (the background of) content between special delimiters
+        highlightSpans: true,
+      });
+    </script>
+    <script src="assets/js/jquery-latest.min.js"></script>
+    <script src="assets/js/custom.js" type="text/javascript"></script>
+  </body>
+</html>
